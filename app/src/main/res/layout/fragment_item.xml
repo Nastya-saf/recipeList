@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--             xmlns:tools="http://schemas.android.com/tools"-->
+<!--             android:layout_width="match_parent"-->
+<!--             android:layout_height="match_parent"-->
+<!--             tools:context=".ItemFragment">-->
+
+<!--    &lt;!&ndash; TODO: Update blank fragment layout &ndash;&gt;-->
+<!--    <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:text="@string/hello_blank_fragment"/>-->
+
+<!--</FrameLayout>-->
+
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="150dp"
+        android:layout_height="170dp"
+        android:onClick="onClick"
+        android:orientation="vertical"
+        android:padding="10dp"
+>
+    <ImageView
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_baseline_local_dining_24"
+            android:scaleType="fitCenter"
+    />
+    <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/name_text"
+            android:textSize="20sp"
+            android:gravity="center"
+    />
+
+</LinearLayout>

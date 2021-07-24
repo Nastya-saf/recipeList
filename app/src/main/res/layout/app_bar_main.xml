@@ -21,14 +21,38 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_main"/>
+<!--    <include layout="@layout/content_main"/>-->
 
-<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--        android:id="@+id/fab"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="bottom|end"-->
-<!--        android:layout_margin="@dimen/fab_margin"-->
-<!--        app:srcCompat="@android:drawable/ic_dialog_email" />-->
+    <FrameLayout
+            android:id="@+id/frameList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+    >
+        <TextView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/message"
+                android:layout_gravity="center_horizontal"
+        />
+
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+        >
+
+            <GridLayout
+                    android:id="@+id/container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:columnCount="2"
+            >
+            </GridLayout>
+
+        </ScrollView>
+
+
+    </FrameLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

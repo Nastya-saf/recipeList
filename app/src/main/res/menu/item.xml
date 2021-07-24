@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+        xmlns:android="http://schemas.android.com/apk/res/android">
+  <item
+          android:id="@+id/editItem"
+          android:title="@string/edit"
+          android:orderInCategory="10"
+  />
+  <item
+          android:id="@+id/deleteItem"
+          android:title="@string/delete"
+          android:orderInCategory="20"
+  />
+  <item
+          android:id="@+id/sendItem"
+          android:title="@string/send"
+          android:orderInCategory="20"
+  />
+
+</menu>

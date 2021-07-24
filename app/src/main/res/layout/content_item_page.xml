@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--        xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ItemPageActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp"
+>
+  <TextView
+          android:id="@+id/name"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Name!!!"
+          android:textSize="26sp"
+          android:layout_alignParentTop="true"
+          android:layout_centerHorizontal="true"
+          android:layout_marginBottom="20dp"
+  />
+
+  <ImageView
+          android:id="@+id/img"
+          android:layout_width="150dp"
+          android:layout_height="200dp"
+          android:src="@drawable/ic_baseline_local_dining_24"
+          android:scaleType="fitCenter"
+          android:layout_alignParentLeft="true"
+          android:layout_below="@+id/name"
+          android:layout_marginRight="30dp"
+          android:layout_above="@+id/textIngredient"
+  />
+
+  <TextView
+          android:id="@+id/category"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="category!!!"
+          android:layout_below="@+id/name"
+          android:layout_toRightOf="@+id/img"
+          android:layout_marginBottom="30dp"
+          android:layout_marginTop="40dp"
+  />
+  <TextView
+          android:id="@+id/time"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Time!!!"
+          android:layout_below="@+id/category"
+          android:layout_toRightOf="@+id/img"
+          android:layout_marginBottom="30dp"
+  />
+  <TextView
+          android:id="@+id/url"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:hint="URL!!!"
+          android:layout_below="@+id/time"
+          android:layout_toRightOf="@+id/img"/>
+
+  <TextView
+          android:id="@+id/textIngredient"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/text_ingredient"
+          android:layout_above="@+id/ingredientScroll"
+          android:layout_marginBottom="5dp"
+  />
+  <ScrollView
+          android:id="@+id/ingredientScroll"
+          android:layout_width="match_parent"
+          android:layout_height="150dp"
+          android:layout_centerHorizontal="true"
+          android:layout_above="@+id/textAction"
+          android:layout_marginBottom="5dp"
+  >
+    <GridLayout
+            android:id="@+id/layoutIngredients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+    </GridLayout>
+  </ScrollView>
+
+  <TextView
+          android:id="@+id/textAction"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/text_action"
+          android:layout_above="@+id/actionsScroll"
+          android:layout_marginBottom="5dp"
+  />
+  <ScrollView
+          android:id="@+id/actionsScroll"
+          android:layout_width="match_parent"
+          android:layout_height="230dp"
+          android:layout_alignParentBottom="true"
+          android:layout_centerHorizontal="true"
+  >
+    <TextView
+            android:id="@+id/actions"
+            android:text="actions!!!"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+    />
+  </ScrollView>
+
+</RelativeLayout>

@@ -1,5 +1,6 @@
 package com.example.recipelist;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.*;
@@ -20,13 +21,15 @@ import androidx.appcompat.widget.Toolbar;
 
 import java.util.List;
 
+import static com.example.recipelist.ItemPageActivity.ID_CATEGORY;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
 //    private AppBarConfiguration mAppBarConfiguration;
     DrawerLayout drawer;
     private ListView drawerList;
     NavigationView navigationView;
-    private static String titleHome="HOME";
+//    private static String titleHome="HOME";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +47,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         this.navigationView = findViewById(R.id.nav_view);
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+
+//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
 //        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
 //        NavigationUI.setupWithNavController(navigationView, navController);
         this.navigationView.setNavigationItemSelectedListener(this);
@@ -56,22 +60,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-//        int id = item.getItemId();
-//
-//        if (id == R.id.nav_camara) {
-//            // Handle the camera action
-//        } else if (id == R.id.nav_gallery) {
-//
-//        } else if (id == R.id.nav_slideshow) {
-//
-//        } else if (id == R.id.nav_manage) {
-//
-//        } else if (id == R.id.nav_share) {
-//
-//        } else if (id == R.id.nav_send) {
-//
-//        }
 
         Log.d("","--------------- Selected  item: "+item+" id: "+item.getItemId()+"   ---------------");
         switch (item.getItemId()) {
@@ -111,11 +99,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.createAction:
-//                if(ArrayListItem.CATEGORIES==null) {
-//                    Toast.makeText(this, R.string.main_message_add_category, Toast.LENGTH_LONG).show();
-//                }else{
-//                    this.addItem();
-//                }
                 Log.d("","--------- createAction ---------");
                 return true;
             case R.id.receiveData:
@@ -143,8 +126,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void initCategoryList(){
         Log.d("","--------- initCategoryList ---------");
 
-        String[] menuList={this.titleHome,"category-1","category-2","category-3","category-4"};
-
+        String[] menuList={"category-1","category-2","category-3","category-4"};
+//        List<String> menuList=ArrayListItem.categoriesToString();
         final Menu menu = this.navigationView.getMenu();
         Log.d("","--------- MENU 1---------");
         for (int i = 1; i<menuList.length; i++) {
@@ -186,6 +169,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        }catch (Exception e){}
 
 
+    }
+
+    public void onClick(int idItem,int idCategory) {
+        Intent intent = new Intent(this, ItemPageActivity.class);
+        intent.putExtra(ID_CATEGORY, idCategory);
+        Item item=ArrayListItem.searchItem(idItem,idCategory);
+        intent.putExtra(Item.class.getSimpleName(), item);
+        startActivity(intent);
     }
 
 }

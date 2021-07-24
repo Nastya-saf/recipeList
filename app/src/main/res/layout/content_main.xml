@@ -19,4 +19,38 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/mobile_navigation"
     />
+
+
+<!--    <FrameLayout-->
+<!--            android:id="@+id/frameList"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginLeft="25dp"-->
+<!--            android:layout_marginRight="25dp"-->
+<!--    >-->
+<!--        <TextView-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_height="150dp"-->
+<!--                android:id="@+id/message"-->
+<!--                android:layout_gravity="center_horizontal"-->
+<!--        />-->
+
+<!--        <ScrollView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--        >-->
+
+<!--            <GridLayout-->
+<!--                    android:id="@+id/container"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:columnCount="2"-->
+<!--            >-->
+<!--            </GridLayout>-->
+
+<!--        </ScrollView>-->
+
+
+<!--    </FrameLayout>-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
