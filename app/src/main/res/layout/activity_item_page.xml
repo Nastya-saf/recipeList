@@ -8,20 +8,28 @@
         tools:context=".ItemPageActivity">
 
   <com.google.android.material.appbar.AppBarLayout
+          android:id="@+id/appbar"
           android:layout_height="wrap_content"
           android:layout_width="match_parent"
-          android:theme="@style/AppTheme.AppBarOverlay">
+          android:theme="@style/AppTheme.AppBarOverlay"
+          >
 
     <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            />
 
   </com.google.android.material.appbar.AppBarLayout>
 
-  <include layout="@layout/content_item_page"/>
+
+  <include
+          android:layout_marginTop="60dp"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          layout="@layout/content_item_page"/>
 
 <!--  <com.google.android.material.floatingactionbutton.FloatingActionButton-->
 <!--          android:id="@+id/fab"-->

@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 //    private AppBarConfiguration mAppBarConfiguration;
     DrawerLayout drawer;
-    private ListView drawerList;
+//    private ListView drawerList;
     NavigationView navigationView;
     List<ItemFragment> listItemFragments=new ArrayList<ItemFragment>();
 //    private static String idHome='menu_home';
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             ListItem list = ArrayListItem.listItems.get(indexListItem);
             this.initFragment(list);
             getSupportActionBar().setTitle(ArrayListItem.CATEGORIES.get(id).name);
-            messageText.setText(R.string.main_message_empty_filter);
+            messageText.setText("");
         } else {
             int size = ArrayListItem.CATEGORIES.size();
             Log.d("","--------------- size: "+size);
@@ -112,10 +112,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         }
 
-//        this.drawer.closeDrawer(drawerList);
+        this.drawer.closeDrawer(Gravity.START);
         return true;
-
-//        this.drawer.closeDrawer(GravityCompat.START);
 
     }
 
