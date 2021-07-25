@@ -149,10 +149,10 @@ public class ItemPageActivity extends AppCompatActivity {
 
     private void editItem(){
         Log.d("","--------------- editItem ---------------");
-//        Intent intent = new Intent(this, CreateItemActivity.class);
-//        intent.putExtra(ID_CATEGORY, this.idCategory);
-//        intent.putExtra(Item.class.getSimpleName(), this.item);
-//        startActivity(intent);
+        Intent intent = new Intent(this, CreateItemActivity.class);
+        intent.putExtra(ID_CATEGORY, this.idCategory);
+        intent.putExtra(Item.class.getSimpleName(), this.item);
+        startActivity(intent);
     }
 
     private void deleteItem(){

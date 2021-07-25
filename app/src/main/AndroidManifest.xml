@@ -9,6 +9,10 @@
           android:roundIcon="@mipmap/ic_launcher_round"
           android:supportsRtl="true"
           android:theme="@style/AppTheme">
+    <activity android:name=".CreateListIngredientsFragment">
+    </activity>
+    <activity android:name=".CreateItemActivity">
+    </activity>
     <activity
             android:name=".ItemPageActivity"
             android:label="@string/title_activity_item_page"
