@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        NavigationUI.setupWithNavController(navigationView, navController);
         this.navigationView.setNavigationItemSelectedListener(this);
 
-        // TODO: добавить ключи !!!
 //        this.checkPermission();
 
         if (savedInstanceState == null) {
@@ -188,50 +187,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void initCategoryList(){
-        Log.d("","--------- initCategoryList ---------");
 
         final Menu menu = this.navigationView.getMenu();
         menu.clear();
-        Log.d("","--------- MENU 1---------");
+        try{
+
         menu.add(Menu.NONE, -1, Menu.NONE, R.string.menu_home);
 
-        for (int i = 1; i<ArrayListItem.CATEGORIES.size(); i++) {
-            menu.add(Menu.NONE, ArrayListItem.CATEGORIES.get(i).id, Menu.NONE, ArrayListItem.CATEGORIES.get(i).name);
-        }
-        Log.d("","--------- MENU 2---------");
-        for (int i = 0, count = this.navigationView.getChildCount(); i < count; i++) {
-            final View child = this.navigationView.getChildAt(i);
-            if (child != null && child instanceof ListView) {
-                final ListView menuView = (ListView) child;
-                final HeaderViewListAdapter adapter = (HeaderViewListAdapter) menuView.getAdapter();
-                final BaseAdapter wrapped = (BaseAdapter) adapter.getWrappedAdapter();
-                wrapped.notifyDataSetChanged();
+            for (int i = 0; i<ArrayListItem.CATEGORIES.size(); i++) {
+                menu.add(Menu.NONE, ArrayListItem.CATEGORIES.get(i).id, Menu.NONE, ArrayListItem.CATEGORIES.get(i).name);
             }
+
+            for (int i = 0, count = this.navigationView.getChildCount(); i < count; i++) {
+                final View child = this.navigationView.getChildAt(i);
+                if (child != null && child instanceof ListView) {
+                    final ListView menuView = (ListView) child;
+                    final HeaderViewListAdapter adapter = (HeaderViewListAdapter) menuView.getAdapter();
+                    final BaseAdapter wrapped = (BaseAdapter) adapter.getWrappedAdapter();
+                    wrapped.notifyDataSetChanged();
+                }
+            }
+        }catch (Exception e){
+            menu.clear();
         }
-
-        Log.d("","--------- MENU 3---------");
-
-//        try{
-//            List<String> menuList=ArrayListItem.categoriesToString();
-
-//            String[] menuList={this.titleHome,"category-1","category-2","category-3","category-4"};
-//
-//            final Menu menu = this.navigationView.getMenu();
-//            for (int i = 1; i <= 3; i++) {
-//                menu.add("Runtime item "+ i);
-//            }
-//
-//            Log.d("","--------- MENU ---------");
-
-//            menuList.add(0,this.titleHome);
-
-//            this.drawerList = (ListView)findViewById(R.id.listCategory);
-//            this.drawerList.setAdapter(new ArrayAdapter<String>(this,
-//                    android.R.layout.simple_list_item_activated_1, menuList));
-//            this.drawerList.setOnItemClickListener(new DrawerItemClickListener());
-
-//        }catch (Exception e){}
-
 
     }
 
@@ -300,6 +278,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void deleteStackFragment(){
+        Log.d("","----------------- deleteStackFragment -----------------");
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         Log.d("","----------------- this.listItemFragments: "+this.listItemFragments);
         for(ItemFragment item: this.listItemFragments){
@@ -344,26 +323,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         startActivity(intent);
     }
 
-//    private void selectItemCategory(int id){
-//        TextView messageText=(TextView) findViewById(R.id.message);
-//        int indexListItem=ArrayListItem.searchIndexListItemsByIdCategory(id);
-//        if(indexListItem!=-1){
-//            ListItem list=ArrayListItem.listItems.get(indexListItem);
-//            this.initFragment(list);
-//            getSupportActionBar().setTitle(ArrayListItem.CATEGORIES.get(id).name);
-//            messageText.setText("");
-//        } else {
-//            int size=ArrayListItem.CATEGORIES.size();
-//            if(id==0){
-//                this.initFragment(ArrayListItem.listItems);
-//                getSupportActionBar().setTitle(R.string.menu_home);
-//                messageText.setText("");
-//            }else{
-//                this.deleteStackFragment();
-//                messageText.setText(R.string.main_message_empty_filter);
-//            }
-//        }
-//
-//        this.drawer.closeDrawer(drawerList);
-//    }
 }
