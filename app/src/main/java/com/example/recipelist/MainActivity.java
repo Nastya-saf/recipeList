@@ -192,7 +192,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         menu.clear();
         try{
 
-        menu.add(Menu.NONE, -1, Menu.NONE, R.string.menu_home);
+            menu.add(Menu.NONE, -1, Menu.NONE, R.string.menu_home);
 
             for (int i = 0; i<ArrayListItem.CATEGORIES.size(); i++) {
                 menu.add(Menu.NONE, ArrayListItem.CATEGORIES.get(i).id, Menu.NONE, ArrayListItem.CATEGORIES.get(i).name);

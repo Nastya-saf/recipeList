@@ -5,10 +5,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
@@ -81,6 +78,7 @@ public class EditCategoryListFragment extends DialogFragment implements DialogIn
                 for(CategoryForAdapter category: this.listAdapter){
                     ArrayListItem.CATEGORIES.add((Category) category);
                 }
+//                this.editCategories();
                 ((MainActivity)getActivity()).clickCreateCategoryDialog();
                 this.saveToJSON();
                 break;
@@ -90,6 +88,17 @@ public class EditCategoryListFragment extends DialogFragment implements DialogIn
                 break;
         }
     }
+
+//    public void editCategories(){
+//        ListView listView = (ListView)getActivity().findViewById(R.id.productList);
+//        ArrayList<String> arraylist = new ArrayList<String>();
+//        for (int a = 0; a < listView.getCount(); a++) {
+//            EditText et = (EditText) listView.getChildAt(a).findViewById(R.id.name);
+////            string[a] = et.getText().toString();
+//            arraylist.add(et.getText().toString());
+//        }
+//        Log.d("","--------- EDIT arraylist: "+arraylist);
+//    }
 
     public void saveToJSON(){
         boolean result = JSON.exportCategoriesToJSON((MainActivity)getActivity(), ArrayListItem.CATEGORIES);

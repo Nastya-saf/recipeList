@@ -56,29 +56,30 @@ public class CategoryAdapter extends ArrayAdapter<CategoryForAdapter> {
 
 //        viewHolder.nameView.getOnFocusChangeListener()
 
-//        viewHolder.nameView.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-//
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence s, int start, int before, int count) {
-//
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable editable) {
-//                // действия после того, как что то введено
-//                // editable - то, что введено. В строку - editable.toString()
-//                Log.d("","--------------- !!!!! afterTextChanged !!!!! editable: "+editable);
-//                if(customData.name==editable.toString()){
-//                    Log.d("","--------------- !!!!! IF !!!!! customData.name: "+customData.name+" editable: "+editable.toString());
-//                    customData.name=editable.toString();
-//                }
-//
-//            }
-//        });
+        viewHolder.nameView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                // действия после того, как что то введено
+                // editable - то, что введено. В строку - editable.toString()
+                Log.d("","--------------- !!!!! afterTextChanged !!!!! editable: "+editable);
+                if(customData.name==editable.toString()){
+                    Log.d("","--------------- !!!!! IF !!!!! customData.name: "+customData.name+" editable: "+editable.toString());
+                    customData.name=editable.toString();
+                    customList.get(position).name=editable.toString();
+                }
+
+            }
+        });
 
         Log.d("","--------------- !!!!! convertView: "+convertView);
 
