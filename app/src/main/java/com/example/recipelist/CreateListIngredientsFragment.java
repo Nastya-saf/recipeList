@@ -112,8 +112,16 @@ public class CreateListIngredientsFragment extends Fragment implements View.OnCl
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        this.updateListIngredients();
+    public void onPause(){
+        super.onPause();
+        Log.d("","-------------START this.listIngredients: "+this.listIngredients);
+        this.listIngredients.clear();
+        for(Ingredient ingredient: this.listAdapter){
+            this.listIngredients.add(ingredient);
+        }
+        Log.d("","------------- this.listAdapter: "+this.listAdapter);
+        Log.d("","-------------END this.listIngredients: "+this.listIngredients);
+        Log.d("","--------------- ON PAUSE ---------------");
     }
+
 }

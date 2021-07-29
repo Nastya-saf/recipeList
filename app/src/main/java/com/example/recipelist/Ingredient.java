@@ -23,6 +23,12 @@ public class Ingredient implements Parcelable{
         this.id=id;
     }
 
+    public Ingredient(Ingredient ingredient) {
+        this.name=ingredient.name;
+        this.quantity=ingredient.quantity;
+        this.id=ingredient.id;
+    }
+
     @Override
     public  String toString(){
         return ""+this.name+" - "+this.quantity;
