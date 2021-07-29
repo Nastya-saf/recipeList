@@ -32,13 +32,11 @@ public class CategoryAdapter extends ArrayAdapter<CategoryForAdapter> {
     public View getView(final int position, View convertView, ViewGroup parent) {
 
         final CategoryAdapter.ViewHolder viewHolder;
-//        if (convertView == null) {
-            convertView = inflater.inflate(this.layout, parent, false);
-            viewHolder = new CategoryAdapter.ViewHolder(convertView);
-            convertView.setTag(viewHolder);
-//        } else {
-//            viewHolder = (CategoryAdapter.ViewHolder) convertView.getTag();
-//        }
+
+        convertView = inflater.inflate(this.layout, parent, false);
+        viewHolder = new CategoryAdapter.ViewHolder(convertView);
+        convertView.setTag(viewHolder);
+
         final CategoryForAdapter customData = this.customList.get(position);
         Log.d("","----------------- ADAPTER  this.customList: "+this.customList);
         Log.d("","----------------- ADAPTER  position: "+position+" this.customList.get(position): "+this.customList.get(position));
@@ -61,7 +59,8 @@ public class CategoryAdapter extends ArrayAdapter<CategoryForAdapter> {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                customList.get(position).name=viewHolder.nameView.getText().toString();
+//                customList.get(position).name=viewHolder.nameView.getText().toString();
+                customData.name=viewHolder.nameView.getText().toString();
             }
 
             @Override
