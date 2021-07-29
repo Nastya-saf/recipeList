@@ -26,13 +26,13 @@ public class IngredientsAdapter extends ArrayAdapter<IngredientForAdapter> {
     public View getView(final int position, View convertView, ViewGroup parent) {
 
         final IngredientsAdapter.ViewHolder viewHolder;
-//        if (convertView == null) {
+        if (convertView == null) {
             convertView = inflater.inflate(this.layout, parent, false);
             viewHolder = new IngredientsAdapter.ViewHolder(convertView);
             convertView.setTag(viewHolder);
-//        } else {
-//            viewHolder = (IngredientsAdapter.ViewHolder) convertView.getTag();
-//        }
+        } else {
+            viewHolder = (IngredientsAdapter.ViewHolder) convertView.getTag();
+        }
         final IngredientForAdapter customData = this.customList.get(position);
 
         viewHolder.nameView.setText(customData.name);

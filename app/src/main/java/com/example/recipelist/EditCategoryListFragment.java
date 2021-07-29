@@ -67,6 +67,7 @@ public class EditCategoryListFragment extends DialogFragment implements DialogIn
                 this.listAdapter.remove(i);
             }
         }
+        this.saveToJSON();
         this.updateList();
     }
 
@@ -75,12 +76,12 @@ public class EditCategoryListFragment extends DialogFragment implements DialogIn
             case Dialog.BUTTON_POSITIVE:
                 ArrayListItem.CATEGORIES.clear();
                 Log.d("","-------------------- !!! BUTTON_POSITIVE: "+this.listAdapter);
-                for(CategoryForAdapter category: this.listAdapter){
-                    ArrayListItem.CATEGORIES.add((Category) category);
+                for(Category category: this.listAdapter){
+                    ArrayListItem.CATEGORIES.add(category);
                 }
 //                this.editCategories();
-                ((MainActivity)getActivity()).clickCreateCategoryDialog();
                 this.saveToJSON();
+                ((MainActivity)getActivity()).clickCreateCategoryDialog();
                 break;
             case Dialog.BUTTON_NEGATIVE:
                 break;
