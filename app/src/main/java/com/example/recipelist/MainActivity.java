@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        NavigationUI.setupWithNavController(navigationView, navController);
         this.navigationView.setNavigationItemSelectedListener(this);
 
-//        this.checkPermission();
+        this.checkPermission();
 
         if (savedInstanceState == null) {
             this.receiveData();
