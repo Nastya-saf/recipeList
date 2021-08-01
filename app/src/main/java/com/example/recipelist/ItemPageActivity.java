@@ -3,7 +3,6 @@ package com.example.recipelist;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.GridLayout;
@@ -11,11 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import android.view.View;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
@@ -38,14 +34,6 @@ public class ItemPageActivity extends AppCompatActivity {
         this.item=(Item)intent.getParcelableExtra(Item.class.getSimpleName());
         this.initText();
 
-//        FloatingActionButton fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
     }
 
 
@@ -70,7 +58,6 @@ public class ItemPageActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-
     }
 
 
@@ -148,7 +135,6 @@ public class ItemPageActivity extends AppCompatActivity {
     }
 
     private void editItem(){
-        Log.d("","--------------- editItem ---------------");
         Intent intent = new Intent(this, CreateItemActivity.class);
         intent.putExtra(ID_CATEGORY, this.idCategory);
         intent.putExtra(Item.class.getSimpleName(), this.item);
@@ -179,7 +165,5 @@ public class ItemPageActivity extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
     }
-
-
 
 }

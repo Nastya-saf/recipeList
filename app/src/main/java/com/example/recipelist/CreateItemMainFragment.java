@@ -1,11 +1,8 @@
 package com.example.recipelist;
 
-
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
-import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,8 +33,6 @@ public class CreateItemMainFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         this.view = inflater.inflate(R.layout.fragment_create_item_main, container, false);
 
-
-        // TODO: для CreateItemMainFragment
         this.spinner = (Spinner) this.view.findViewById(R.id.categories);
 
         List<String> categories= new ArrayList<String>();

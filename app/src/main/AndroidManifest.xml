@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.recipelist">
 
-  <!--  TODO: на запись в галерею пока не надо!-->
-  <!--  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:required="false"/>
   <uses-permission android:name="android.permission.CAMERA"  android:required="false"/>
   <uses-feature android:name="android.hardware.camera" />
@@ -16,9 +14,8 @@
           android:roundIcon="@mipmap/ic_launcher_round"
           android:supportsRtl="true"
           android:theme="@style/AppTheme">
-<!--    <activity android:name=".CreateListIngredientsFragment">-->
-<!--    </activity>-->
-    <activity android:name=".CreateItemActivity">
+    <activity android:name=".CreateItemActivity"
+              >
     </activity>
     <activity
             android:name=".ItemPageActivity"

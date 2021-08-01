@@ -7,8 +7,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
 
 public class JSON {
     private static final String FILE_NAME_LIST_ITEMS = "listItems.json";

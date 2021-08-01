@@ -4,7 +4,6 @@ package com.example.recipelist;
 import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +22,6 @@ public class CategoryAdapter extends ArrayAdapter<CategoryForAdapter> {
 
     CategoryAdapter(Context context, int resource, ArrayList<CategoryForAdapter> customData) {
         super(context, resource, customData);
-        Log.d("","----------------- ADAPTER !!!!!!! customData: "+customData);
         this.customList = customData;
         this.layout = resource;
         this.inflater = LayoutInflater.from(context);
@@ -38,8 +36,6 @@ public class CategoryAdapter extends ArrayAdapter<CategoryForAdapter> {
         convertView.setTag(viewHolder);
 
         final CategoryForAdapter customData = this.customList.get(position);
-        Log.d("","----------------- ADAPTER  this.customList: "+this.customList);
-        Log.d("","----------------- ADAPTER  position: "+position+" this.customList.get(position): "+this.customList.get(position));
 
         viewHolder.nameView.setText(customData.name);
         viewHolder.selectedView.setChecked(customData.selected);
@@ -59,7 +55,6 @@ public class CategoryAdapter extends ArrayAdapter<CategoryForAdapter> {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-//                customList.get(position).name=viewHolder.nameView.getText().toString();
                 customData.name=viewHolder.nameView.getText().toString();
             }
 
@@ -67,8 +62,6 @@ public class CategoryAdapter extends ArrayAdapter<CategoryForAdapter> {
             public void afterTextChanged(Editable editable) {
             }
         });
-
-        Log.d("","--------------- !!!!! convertView: "+convertView);
 
         return convertView;
     }

@@ -1,11 +1,7 @@
 package com.example.recipelist;
 
-
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -100,7 +96,6 @@ public class CreateItemActivity extends AppCompatActivity {
         String timeTextView =this.mainFragment.getTime();
         String urlTextView = this.mainFragment.getUrl();
         String category = this.mainFragment.getCategory();
-        Log.d("","------------------ category: "+category);
         String actionsTextView = "";
 
         try{
@@ -137,8 +132,6 @@ public class CreateItemActivity extends AppCompatActivity {
         }
 
         int idCategory=ArrayListItem.searchIdCategory(category);
-        Log.d("","------------- idCategory: "+idCategory);
-        Log.d("","------------- ArrayListItem: "+ArrayListItem.CATEGORIES);
         if(idCategory==-1){
             idCategory=ArrayListItem.addCategory(category);
         }
@@ -151,7 +144,6 @@ public class CreateItemActivity extends AppCompatActivity {
                 urlTextView);
 
         if(this.isEdit){
-            //edit
             if(this.idCategory==idCategory){
                 ArrayListItem.updateItem(this.idCategory,item,this.item.id);
             }else{
@@ -160,7 +152,6 @@ public class CreateItemActivity extends AppCompatActivity {
             }
 
         }else{
-            //create
             ArrayListItem.addListItem(idCategory,item);
         }
 
@@ -186,19 +177,6 @@ public class CreateItemActivity extends AppCompatActivity {
     }
 
     private void back(){
-//        if(this.isEdit){
-//            Log.d("","---------------- back -> ItemPageActivity: "+this.item);
-//            Intent intent = new Intent(this, ItemPageActivity.class);
-//            intent.putExtra(ID_CATEGORY, this.idCategory);
-//            intent.putExtra(Item.class.getSimpleName(), this.item);
-//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//            startActivity(intent);
-//        }else{
-//            Log.d("","---------------- back -> MainActivity");
-//            Intent intent = new Intent(this, MainActivity.class);
-//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//            startActivity(intent);
-//        }
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);

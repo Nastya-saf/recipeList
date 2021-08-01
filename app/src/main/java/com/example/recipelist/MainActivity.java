@@ -4,22 +4,14 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.core.view.GravityCompat;
 import androidx.fragment.app.FragmentTransaction;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -31,14 +23,10 @@ import static com.example.recipelist.ItemPageActivity.ID_CATEGORY;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-//    private AppBarConfiguration mAppBarConfiguration;
     DrawerLayout drawer;
-//    private ListView drawerList;
     NavigationView navigationView;
     List<ItemFragment> listItemFragments=new ArrayList<ItemFragment>();
-//    private static String idHome='menu_home';
     private static final int REQUEST_CODE_PERMISSION_READ_STORAGE= 563;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,12 +42,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-
         this.navigationView = findViewById(R.id.nav_view);
 
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-//        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-//        NavigationUI.setupWithNavController(navigationView, navController);
         this.navigationView.setNavigationItemSelectedListener(this);
 
         this.checkPermission();
@@ -76,44 +60,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
 
-        Log.d("", "--------------- Selected  item: " + item + " id: " + item.getItemId() + "   ---------------");
         int id = item.getItemId();
-//        if(id==-1){
-//            Log.d("","--------- menu_home ---------");
-//            return true;
-//        }else {
-//            this.selectItemCategory(id);
-//            return true;
-//        }
-
         TextView messageText = (TextView) findViewById(R.id.message);
         int indexListItem = ArrayListItem.searchIndexListItemsByIdCategory(id);
-        Log.d("","--------------- indexListItem: "+indexListItem);
+
         if (indexListItem != -1) {
-            Log.d("","--------------- ");
             ListItem list = ArrayListItem.listItems.get(indexListItem);
             this.initFragment(list);
             getSupportActionBar().setTitle(ArrayListItem.CATEGORIES.get(id).name);
             messageText.setText("");
         } else {
             int size = ArrayListItem.CATEGORIES.size();
-            Log.d("","--------------- size: "+size);
             if (id == -1) {
-                Log.d("","--------------- IF");
                 this.initFragment(ArrayListItem.listItems);
                 getSupportActionBar().setTitle(R.string.menu_home);
                 messageText.setText("");
             } else {
-                Log.d("","--------------- ELSE");
                 this.deleteStackFragment();
-                Log.d("","--------------- !!!!!!");
                 messageText.setText(R.string.main_message_empty_filter);
             }
         }
-
         this.drawer.closeDrawer(Gravity.START);
         return true;
-
     }
 
     @Override
@@ -122,18 +90,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-//    @Override
-//    public boolean onSupportNavigateUp() {
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-//        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-//                || super.onSupportNavigateUp();
-//    }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.createAction:
-                Log.d("","--------- createAction ---------");
                 if(ArrayListItem.CATEGORIES==null) {
                     Toast.makeText(this, R.string.main_message_add_category, Toast.LENGTH_LONG).show();
                 }else{
@@ -142,11 +102,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 return true;
             case R.id.receiveData:
                 this.receiveData();
-                Log.d("","--------- receiveData ---------");
                 return true;
             case R.id.createCategory:
                 this.showDialogCreateCategory();
-                Log.d("","--------- createCategory ---------");
                 return true;
             case R.id.editCategoryList:
                 if(ArrayListItem.CATEGORIES==null) {
@@ -154,7 +112,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }else{
                     this.showDialogEditCategoryList();
                 }
-                Log.d("","--------- editCategoryList ---------");
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -222,13 +179,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void showDialogCreateCategory(){
-        Log.d("","--------------- showDialogEditCategoryList ---------------");
         CreateCategoryFragment dialog = new CreateCategoryFragment();
         dialog.show(getSupportFragmentManager(), "");
     }
 
     private void showDialogEditCategoryList(){
-        Log.d("","--------------- showDialogEditCategoryList ---------------");
         EditCategoryListFragment dialog = new EditCategoryListFragment();
         dialog.show(getSupportFragmentManager(), "");
     }
@@ -236,7 +191,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void clickCreateCategoryDialog(){
         this.initCategoryList();
     }
-
 
     @Override
     protected void onResume(){
@@ -278,14 +232,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void deleteStackFragment(){
-        Log.d("","----------------- deleteStackFragment -----------------");
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        Log.d("","----------------- this.listItemFragments: "+this.listItemFragments);
         for(ItemFragment item: this.listItemFragments){
-            Log.d("","--------------- item: "+item);
             ft.remove(item);
         }
-        Log.d("","------------ COMMIT ------------");
         ft.commit();
     }
 
@@ -318,7 +268,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void addItem(){
-        Log.d("","--------------- addItem ---------------");
         Intent intent = new Intent(this, CreateItemActivity.class);
         startActivity(intent);
     }

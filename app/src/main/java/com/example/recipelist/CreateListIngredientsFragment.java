@@ -1,8 +1,6 @@
 package com.example.recipelist;
 
-
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.*;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,13 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.fragment.app.FragmentTransaction;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
-
-import static com.example.recipelist.ItemPageActivity.ID_CATEGORY;
 
 public class CreateListIngredientsFragment extends Fragment implements View.OnClickListener{
     private int sizeIngredients=0;
@@ -80,7 +72,6 @@ public class CreateListIngredientsFragment extends Fragment implements View.OnCl
     }
 
     private void addItemIngredient(){
-        //TODO: добавление ингридиента в список
 
         TextView nameTextView = (TextView) this.view.findViewById(R.id.name);
         TextView quantityTextView = (TextView) this.view.findViewById(R.id.quantity);
@@ -114,14 +105,11 @@ public class CreateListIngredientsFragment extends Fragment implements View.OnCl
     @Override
     public void onPause(){
         super.onPause();
-        Log.d("","-------------START this.listIngredients: "+this.listIngredients);
         this.listIngredients.clear();
         for(Ingredient ingredient: this.listAdapter){
             this.listIngredients.add(ingredient);
         }
-        Log.d("","------------- this.listAdapter: "+this.listAdapter);
-        Log.d("","-------------END this.listIngredients: "+this.listIngredients);
-        Log.d("","--------------- ON PAUSE ---------------");
+
     }
 
 }

@@ -2,7 +2,6 @@ package com.example.recipelist;
 
 
 import android.widget.TextView;
-import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

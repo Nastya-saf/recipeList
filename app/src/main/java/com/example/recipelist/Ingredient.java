@@ -8,7 +8,7 @@ public class Ingredient implements Parcelable{
     public static int SIZE=0;
     public int id=-1;
     public String name="";
-    public String quantity="";// количество
+    public String quantity="";
 
     public Ingredient(String name,String quantity){
         this.name=name;

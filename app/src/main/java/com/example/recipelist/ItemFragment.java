@@ -1,6 +1,5 @@
 package com.example.recipelist;
 
-
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,9 +11,6 @@ import androidx.fragment.app.Fragment;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Request;
-
-import java.io.File;
 
 import static com.example.recipelist.ItemPageActivity.ID_CATEGORY;
 
@@ -27,8 +23,6 @@ public class ItemFragment extends Fragment implements View.OnClickListener {
     public ItemFragment(){
         super(R.layout.fragment_item);
     }
-
-    public String someString;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -1,7 +1,5 @@
 package com.example.recipelist;
 
-import android.content.Context;
-
 import java.util.ArrayList;
 import java.util.List;
 
